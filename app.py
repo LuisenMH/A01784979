@@ -58,4 +58,10 @@ def predict(n,programa,semestre,promedio,asistencia,tarde,horas,apoyo,sat):
     action=', '.join(suggestions) if suggestions else 'mantener seguimiento preventivo'
     return html.Div([html.H3(f'Riesgo {level}: {p:.1%}'),html.P(f'Acción sugerida: {action}.')])
 
-if __name__=='__main__': app.run(debug=True)
+import os
+if _name_ == "_main_":
+    app.run(
+        debug=os.getenv("DASH_DEBUG", "false").lower() == "true",
+        host="0.0.0.0",
+        port=int(os.getenv("PORT", "8050")),
+    )
