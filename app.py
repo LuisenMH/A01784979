@@ -59,7 +59,7 @@ def predict(n,programa,semestre,promedio,asistencia,tarde,horas,apoyo,sat):
     return html.Div([html.H3(f'Riesgo {level}: {p:.1%}'),html.P(f'Acción sugerida: {action}.')])
 
 import os
-if _name_ == "__main__":
+if __name__ == "__main__":
     app.run(
         debug=os.getenv("DASH_DEBUG", "false").lower() == "true",
         host="0.0.0.0",
